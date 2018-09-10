@@ -36,7 +36,6 @@ public class ChiNhanh {
 
     /*1 chi nhánh có nhiều kho hàng*/
     @JsonBackReference
-    @JsonManagedReference
     @OneToMany(mappedBy = "chiNhanh", fetch = FetchType.LAZY)
     List<KhoHang> lsKhoHang;
 
@@ -77,4 +76,29 @@ public class ChiNhanh {
     public void setSodt(String sodt) {
         this.sodt = sodt;
     }
+
+    public List<DonHang> getLsHoaDon() {
+        return lsHoaDon;
+    }
+
+    public void setLsHoaDon(List<DonHang> lsHoaDon) {
+        this.lsHoaDon = lsHoaDon;
+    }
+
+    public List<KhoHang> getLsKhoHang() {
+        return lsKhoHang;
+    }
+
+    public void setLsKhoHang(List<KhoHang> lsKhoHang) {
+        this.lsKhoHang = lsKhoHang;
+    }
+
+    public List<NguoiDung> getLsNguoiDung() {
+        return lsNguoiDung;
+    }
+
+    public void setLsNguoiDung(List<NguoiDung> lsNguoiDung) {
+        this.lsNguoiDung = lsNguoiDung;
+    }
+
 }
