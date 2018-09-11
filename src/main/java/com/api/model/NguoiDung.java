@@ -44,7 +44,7 @@ public class NguoiDung {
     private String soDT;
 
     /*1 người dùng chỉ có 1 tài khoản đăng nhập*/
-//    @JsonBackReference
+    @JsonBackReference
     @OneToOne(mappedBy = "nguoiDung", cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY)
     private  TaiKhoan taiKhoan;
 
