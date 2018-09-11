@@ -5,6 +5,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +18,9 @@ import java.util.List;
  */
 @Entity
 @Table(name="ChiNhanh")
+@XmlRootElement(name = "chinhanh")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class ChiNhanh {
+public class ChiNhanh implements Serializable {
     /*Mã chi nhánh*/
     @Id
     @Column(name = "MaChiNhanh")
