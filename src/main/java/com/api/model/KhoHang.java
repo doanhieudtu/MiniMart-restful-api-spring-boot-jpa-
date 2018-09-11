@@ -32,7 +32,7 @@ public class KhoHang {
     private String diaChi;
 
     /*1 kho hàng  chứa 1 loại hàng duy nhất*/
-    @JsonBackReference
+    @JsonManagedReference
     @OneToOne( mappedBy = "khoHang",cascade = CascadeType.ALL, optional = false)
     private LoaiHang loaiHang;
 
@@ -59,6 +59,70 @@ public class KhoHang {
         this.loaiHang = loaiHang;
         this.lsKhoHang_Hang = lsKhoHang_Hang;
         this.lsPhieuXuat = lsPhieuXuat;
+        this.lsPhieuNhap = lsPhieuNhap;
+    }
+
+    public int getMaKhoHang() {
+        return maKhoHang;
+    }
+
+    public void setMaKhoHang(int maKhoHang) {
+        this.maKhoHang = maKhoHang;
+    }
+
+    public ChiNhanh getChiNhanh() {
+        return chiNhanh;
+    }
+
+    public void setChiNhanh(ChiNhanh chiNhanh) {
+        this.chiNhanh = chiNhanh;
+    }
+
+    public String getTenKhoHang() {
+        return tenKhoHang;
+    }
+
+    public void setTenKhoHang(String tenKhoHang) {
+        this.tenKhoHang = tenKhoHang;
+    }
+
+    public String getDiaChi() {
+        return diaChi;
+    }
+
+    public void setDiaChi(String diaChi) {
+        this.diaChi = diaChi;
+    }
+
+    public LoaiHang getLoaiHang() {
+        return loaiHang;
+    }
+
+    public void setLoaiHang(LoaiHang loaiHang) {
+        this.loaiHang = loaiHang;
+    }
+
+    public List<KhoHang_Hang> getLsKhoHang_Hang() {
+        return lsKhoHang_Hang;
+    }
+
+    public void setLsKhoHang_Hang(List<KhoHang_Hang> lsKhoHang_Hang) {
+        this.lsKhoHang_Hang = lsKhoHang_Hang;
+    }
+
+    public List<PhieuXuat> getLsPhieuXuat() {
+        return lsPhieuXuat;
+    }
+
+    public void setLsPhieuXuat(List<PhieuXuat> lsPhieuXuat) {
+        this.lsPhieuXuat = lsPhieuXuat;
+    }
+
+    public List<PhieuNhap> getLsPhieuNhap() {
+        return lsPhieuNhap;
+    }
+
+    public void setLsPhieuNhap(List<PhieuNhap> lsPhieuNhap) {
         this.lsPhieuNhap = lsPhieuNhap;
     }
 }
