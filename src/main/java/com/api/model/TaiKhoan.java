@@ -22,8 +22,11 @@ public class TaiKhoan {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int maTK;
 
+    @Column(name = "MatKhau")
+    private String matKhau;
+
     /*1 tài khoản chỉ thuộc sỡ hữu người dùng*/
-//    @JsonManagedReference
+    @JsonBackReference
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="MaND")
     private NguoiDung nguoiDung;
