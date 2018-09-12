@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.Map;
  */
 @Entity
 @Table( name = "NguoiDung")
+@XmlRootElement(name = "NguoiDung")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class NguoiDung {
     /*mã người dùng*/
@@ -153,6 +155,18 @@ public class NguoiDung {
 
     public List<DonHang> getLsDonHang() {
         return lsDonHang;
+    }
+
+    public boolean isGioiTinh() {
+        return gioiTinh;
+    }
+
+    public ChiNhanh getChiNhanh() {
+        return chiNhanh;
+    }
+
+    public void setChiNhanh(ChiNhanh chiNhanh) {
+        this.chiNhanh = chiNhanh;
     }
 
     public void setLsDonHang(List<DonHang> lsDonHang) {
