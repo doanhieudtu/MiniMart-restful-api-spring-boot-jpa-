@@ -50,6 +50,12 @@ public class ChiNhanh implements Serializable {
     @OneToMany(mappedBy = "chiNhanh", fetch = FetchType.LAZY)
     List<NguoiDung> lsNguoiDung;
 
+    /*1 chi nhánh có nhiều mặt hàng khác nhau về số lượng của các chi nhánh khác */
+    @JsonBackReference
+    @OneToMany(mappedBy = "chiNhanh", fetch = FetchType.LAZY)
+    private List<MatHang_ChiNhanh> lsMatHang_ChiNhanh;
+
+
     public ChiNhanh() {
         List<DonHang> lsHoaDon= new ArrayList<>();
         List<KhoHang> lsKhoHang= new ArrayList<>();
@@ -107,4 +113,11 @@ public class ChiNhanh implements Serializable {
         this.lsNguoiDung = lsNguoiDung;
     }
 
+    public List<MatHang_ChiNhanh> getLsMatHang_ChiNhanh() {
+        return lsMatHang_ChiNhanh;
+    }
+
+    public void setLsMatHang_ChiNhanh(List<MatHang_ChiNhanh> lsMatHang_ChiNhanh) {
+        this.lsMatHang_ChiNhanh = lsMatHang_ChiNhanh;
+    }
 }
