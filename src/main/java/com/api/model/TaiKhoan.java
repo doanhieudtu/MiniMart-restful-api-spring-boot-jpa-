@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
  */
 @Entity
 @Table(name="TaiKhoan")
+@XmlRootElement(name="TaiKhoan")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class TaiKhoan {
     /*mã tài khoản*/
@@ -46,10 +48,6 @@ public class TaiKhoan {
         List<ThongBao_TaiKhoan> lsThongBaoTaiKhoan= new ArrayList<>();
         this.lsTaiKhoanQuyen = lsTaiKhoanQuyen;
         this.lsThongBaoTaiKhoan = lsThongBaoTaiKhoan;
-    }
-
-    public int getMatk() {
-        return maTK;
     }
 
     public void setMatk(int matk) {
@@ -94,5 +92,13 @@ public class TaiKhoan {
 
     public void setLsThongBaoTaiKhoan(List<ThongBao_TaiKhoan> lsThongBaoTaiKhoan) {
         this.lsThongBaoTaiKhoan = lsThongBaoTaiKhoan;
+    }
+
+    public String getMatKhau() {
+        return matKhau;
+    }
+
+    public void setMatKhau(String matKhau) {
+        this.matKhau = matKhau;
     }
 }

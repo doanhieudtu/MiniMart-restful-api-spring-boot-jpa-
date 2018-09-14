@@ -20,8 +20,8 @@ public class ChiTietPhieuXuat {
 
     @JsonManagedReference
     @ManyToOne
-    @JoinColumn(name = "MaHang")
-    private MatHang matHang;
+    @JoinColumn(name = "Ma_Hang_ChiNhanh")
+    private MatHang_ChiNhanh matHang_ChiNhanh;
 
     @JsonManagedReference
     @ManyToOne
@@ -39,12 +39,12 @@ public class ChiTietPhieuXuat {
         this.maCT = maCT;
     }
 
-    public MatHang getMatHang() {
-        return matHang;
+    public MatHang_ChiNhanh getMatHang() {
+        return matHang_ChiNhanh;
     }
 
-    public void setMatHang(MatHang matHang) {
-        this.matHang = matHang;
+    public void setMatHang(MatHang_ChiNhanh matHang) {
+        this.matHang_ChiNhanh = matHang;
     }
 
     public PhieuXuat getPhieuXuat() {
@@ -61,5 +61,13 @@ public class ChiTietPhieuXuat {
 
     public void setSoLuong(int soLuong) {
         this.soLuong = soLuong;
+    }
+
+    public MatHang_ChiNhanh getMatHang_ChiNhanh() {
+        return matHang_ChiNhanh;
+    }
+
+    public void setMatHang_ChiNhanh(MatHang_ChiNhanh matHang_ChiNhanh) {
+        this.matHang_ChiNhanh = matHang_ChiNhanh;
     }
 }

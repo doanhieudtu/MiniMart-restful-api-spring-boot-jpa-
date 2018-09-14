@@ -26,25 +26,9 @@ public class MatHang {
     @Column(name = "TenHang")
     private  String tenhang;
 
-    /*ngày sản xuất*/
-    @Column(name = "NgaySanXuat")
-    private Date ngaysanxuat;
-
-    /*hạn sử dụng*/
-    @Column(name = "HanSuDung")
-    private int hansudung;
-
-    /*số lượng tồn trong kho*/
-    @Column(name = "SoLuongTon")
-    private int soLuongTon;
-
-    /*số lượng có tại cửa hàng*/
-    @Column(name = "SoLuongDangBan")
-    private int soLuongDangBan;
-
     /* giá bán của mặt hàng*/
     @Column(name = "GiaBanRa")
-    private long giaBanRa;
+    private double giaBanRa;
 
     /* giá nhập vào của nhà cung cấp*/
     @Column(name = "GiaNhapVao")
@@ -54,15 +38,10 @@ public class MatHang {
     @Column(name = "HinhAnh")
     private String hinhAnh;
 
-    /*1 mặt hàng có thể xuất hiện trong nhiều phiếu nhập*/
+    /* 1 mặt hàng xuất hiện ở nhiều chi nhánh khác nhau về số lượng*/
     @JsonBackReference
     @OneToMany(mappedBy = "matHang", fetch = FetchType.LAZY)
-    private List<ChiTietPhieuNhap> lsChiTietPhieuNhap;
-
-    /*1 mặt hàng có thể xuất hiện trong nhiều phiếu xuất*/
-    @JsonBackReference
-    @OneToMany(mappedBy = "matHang", fetch = FetchType.LAZY)
-    private List<ChiTietPhieuXuat> lsChiTietPhieuXuat;
+    private List<MatHang_ChiNhanh> lsMatHang_ChiNhanh;
 
     /* 1 mặt hàng được nhập từ nhiều nhà cung cấp*/
     @OneToMany(mappedBy = "matHang", fetch = FetchType.LAZY)
@@ -78,29 +57,6 @@ public class MatHang {
     @ManyToOne
     @JoinColumn(name = "MaLoaiHang")
     private LoaiHang loaiHang;
-
-    /* 1 mặt hàng có thể xuất hiện ở nhiều đơn hàng*/
-    @JsonBackReference
-    @OneToMany(mappedBy = "donHang", fetch =FetchType.LAZY)
-    List<ChiTietDonHang> hangDonHang;
-
-    /* 1 mặt hàng có thể nằm trong nhiều kho hàng*/
-    @JsonBackReference
-    @OneToMany(mappedBy = "matHang", fetch = FetchType.LAZY)
-    private List<KhoHang_Hang> lsCTKhoHang;
-//
-//    public MatHang() {
-//        List<ChiTietPhieuNhap> lsChiTietPhieuNhap= new ArrayList<>();
-//        List<ChiTietPhieuXuat> lsChiTietPhieuXuat= new ArrayList<>();
-//        List<NhaCC_MatHang> lsNhaCungCap_MatHang= new ArrayList<>();
-//        List<ChiTietDonHang> hangDonHang= new ArrayList<>();
-//        List<KhoHang_Hang> lsCTKhoHang= new ArrayList<>();
-//        this.lsChiTietPhieuNhap = lsChiTietPhieuNhap;
-//        this.lsChiTietPhieuXuat = lsChiTietPhieuXuat;
-//        this.lsNhaCungCap_MatHang = lsNhaCungCap_MatHang;
-//        this.hangDonHang = hangDonHang;
-//        this.lsCTKhoHang = lsCTKhoHang;
-//    }
 
     public String getMahang() {
         return mahang;
@@ -118,20 +74,52 @@ public class MatHang {
         this.tenhang = tenhang;
     }
 
-    public Date getNgaysanxuat() {
-        return ngaysanxuat;
+    public double getGiaBanRa() {
+        return giaBanRa;
     }
 
-    public void setNgaysanxuat(Date ngaysanxuat) {
-        this.ngaysanxuat = ngaysanxuat;
+    public void setGiaBanRa(long giaBanRa) {
+        this.giaBanRa = giaBanRa;
     }
 
-    public int getHansudung() {
-        return hansudung;
+    public double getGiaNhapVao() {
+        return giaNhapVao;
     }
 
-    public void setHansudung(int hansudung) {
-        this.hansudung = hansudung;
+    public void setGiaNhapVao(double giaNhapVao) {
+        this.giaNhapVao = giaNhapVao;
+    }
+
+    public String getHinhAnh() {
+        return hinhAnh;
+    }
+
+    public void setHinhAnh(String hinhAnh) {
+        this.hinhAnh = hinhAnh;
+    }
+
+    public List<MatHang_ChiNhanh> getLsMatHang_ChiNhanh() {
+        return lsMatHang_ChiNhanh;
+    }
+
+    public void setLsMatHang_ChiNhanh(List<MatHang_ChiNhanh> lsMatHang_ChiNhanh) {
+        this.lsMatHang_ChiNhanh = lsMatHang_ChiNhanh;
+    }
+
+    public List<NhaCC_MatHang> getLsNhaCungCap_MatHang() {
+        return lsNhaCungCap_MatHang;
+    }
+
+    public void setLsNhaCungCap_MatHang(List<NhaCC_MatHang> lsNhaCungCap_MatHang) {
+        this.lsNhaCungCap_MatHang = lsNhaCungCap_MatHang;
+    }
+
+    public LoaiHang getLoaiHang() {
+        return loaiHang;
+    }
+
+    public void setLoaiHang(LoaiHang loaiHang) {
+        this.loaiHang = loaiHang;
     }
 
     public String getDonvitinh() {
@@ -148,24 +136,6 @@ public class MatHang {
 
     public void setLoaihang(LoaiHang loaihang) {
         this.loaiHang = loaihang;
-    }
-
-    public List<ChiTietDonHang> getHangDonHang() {
-        return hangDonHang;
-    }
-
-    public void setHangDonHang(List<ChiTietDonHang> hangDonHang) {
-        this.hangDonHang = hangDonHang;
-    }
-
-
-
-    public int getSoLuongTon() {
-        return soLuongTon;
-    }
-
-    public void setSoLuongTon(int soLuongTon) {
-        this.soLuongTon = soLuongTon;
     }
 
 }
