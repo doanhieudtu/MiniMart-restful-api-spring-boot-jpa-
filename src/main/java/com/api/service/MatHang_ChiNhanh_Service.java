@@ -1,7 +1,6 @@
 package com.api.service;
 
 import com.api.dao_impl.MatHang_ChiNhanh_impl;
-import com.api.model.MatHang;
 import com.api.model.MatHang_ChiNhanh;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
