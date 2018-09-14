@@ -25,8 +25,8 @@ public class ChiTietDonHang {
     /* hàng trong bảng chi tiết*/
     @JsonManagedReference
     @ManyToOne
-    @JoinColumn(name = "MaHang")
-    private MatHang matHang;
+    @JoinColumn(name = "Ma_Hang_ChiNhanh")
+    private MatHang_ChiNhanh matHang_chiNhanh;
 
     /*hóa đơn trong bảng chi tiết*/
     @JsonManagedReference
@@ -50,12 +50,12 @@ public class ChiTietDonHang {
         this.soLuong = soLuong;
     }
 
-    public MatHang getMatHang() {
-        return matHang;
+    public MatHang_ChiNhanh getMatHang() {
+        return matHang_chiNhanh;
     }
 
-    public void setMatHang(MatHang matHang) {
-        this.matHang = matHang;
+    public void setMatHang(MatHang_ChiNhanh matHang) {
+        this.matHang_chiNhanh = matHang;
     }
 
     public DonHang getDonHang() {
@@ -65,4 +65,13 @@ public class ChiTietDonHang {
     public void setDonHang(DonHang donHang) {
         this.donHang = donHang;
     }
+
+    public MatHang_ChiNhanh getMatHang_chiNhanh() {
+        return matHang_chiNhanh;
+    }
+
+    public void setMatHang_chiNhanh(MatHang_ChiNhanh matHang_chiNhanh) {
+        this.matHang_chiNhanh = matHang_chiNhanh;
+    }
+
 }
