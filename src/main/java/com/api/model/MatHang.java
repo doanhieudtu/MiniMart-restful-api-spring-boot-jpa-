@@ -26,14 +26,6 @@ public class MatHang {
     @Column(name = "TenHang")
     private  String tenhang;
 
-    /* giá bán của mặt hàng*/
-    @Column(name = "GiaBanRa")
-    private double giaBanRa;
-
-    /* giá nhập vào của nhà cung cấp*/
-    @Column(name = "GiaNhapVao")
-    private double giaNhapVao;
-
     /* hình ảnh sản mặt hàng*/
     @Column(name = "HinhAnh")
     private String hinhAnh;
@@ -72,22 +64,6 @@ public class MatHang {
 
     public void setTenhang(String tenhang) {
         this.tenhang = tenhang;
-    }
-
-    public double getGiaBanRa() {
-        return giaBanRa;
-    }
-
-    public void setGiaBanRa(long giaBanRa) {
-        this.giaBanRa = giaBanRa;
-    }
-
-    public double getGiaNhapVao() {
-        return giaNhapVao;
-    }
-
-    public void setGiaNhapVao(double giaNhapVao) {
-        this.giaNhapVao = giaNhapVao;
     }
 
     public String getHinhAnh() {

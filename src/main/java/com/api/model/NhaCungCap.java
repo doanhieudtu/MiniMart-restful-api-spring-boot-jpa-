@@ -36,6 +36,11 @@ public class NhaCungCap {
     @Column(name = "Email")
     private String email;
 
+    @ManyToOne
+    @JoinColumn(name="MaNhom")
+    private NhomNhaCCap nhomNhaCCap;
+
+
     /*1 nhà cung cấp có thể cung cấp nhiều loại hàng*/
     @JsonBackReference
     @OneToMany(mappedBy = "nhaCungCap", fetch = FetchType.LAZY)
@@ -92,6 +97,14 @@ public class NhaCungCap {
         this.lsNhaCC_loaiHang = lsNhaCC_loaiHang;
         this.ls_Mat_hang_NhaCC = ls_Mat_hang_NhaCC;
         this.lsNhaCC_loaiHang = lsNhaCC_loaiHang;
+    }
+
+    public NhomNhaCCap getNhomNhaCCap() {
+        return nhomNhaCCap;
+    }
+
+    public void setNhomNhaCCap(NhomNhaCCap nhomNhaCCap) {
+        this.nhomNhaCCap = nhomNhaCCap;
     }
 
     public List<NhaCC_LoaiHang> getLsNhaCC_loaiHang() {
