@@ -41,7 +41,6 @@ public class DemoController {
     TaiKhoanService taiKhoanService;
 
 
-
     @GET
     @Produces({ MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
@@ -54,16 +53,7 @@ public class DemoController {
     @ResponseBody
     @Produces({ MediaType.APPLICATION_JSON})
     @GetMapping("ls-nguoi-dung")
-    public Map<String, Object> Show() throws Throwable{
-        Map<String, Object> mapData= new HashMap<>();
-        List<String> ls= new ArrayList<>();
-        ls.add("susscess");
-        mapData.put("status",ls);
-        List<TaiKhoan> lsTK= new ArrayList<>();
-        lsTK=(List<TaiKhoan>) taiKhoanService.FindAll();
-        mapData.put("taikhoan", lsTK.get(0));
-        int maChiNhanh= lsTK.get(0).getNguoi_dung().getChiNhanh().getMachinhanh();
-        mapData.put("branch", (List<ChiNhanh>) chiNhanhService.FinbyProperty("machinhanh",maChiNhanh)[0]);
-        return mapData;
+    public List<TaiKhoan> Show() throws Throwable{
+        return taiKhoanService.FindAll();
     }
 }

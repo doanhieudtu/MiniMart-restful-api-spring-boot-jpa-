@@ -2,6 +2,8 @@ package com.api.configs;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -44,9 +46,7 @@ public class JPA_Configs {
         //Configures the used database dialect. This allows Hibernate to create SQL
         //that is optimized for the used database.
         jpaProperties.put("hibernate.dialect", env.getRequiredProperty("hibernate.dialect"));
-
         jpaProperties.put("hibernate.enable_lazy_load_no_trans",env.getRequiredProperty("hibernate.enable_lazy_load_no_trans"));
-
         //Specifies the action that is invoked to the database when the Hibernate
         //SessionFactory is created or closed.
         jpaProperties.put("spring.jpa.hibernate.ddl-auto",

@@ -13,4 +13,6 @@ public interface MatHang_ChiNhanh_Service_Interface {
     boolean Update(MatHang_ChiNhanh entity);
     Object[] FinbyProperty(String property, Object value);
     List<MatHang_ChiNhanh> FindAll();
+    List<MatHang_ChiNhanh> FindContentLike(int chiNhanh, String noiDung);
+    List<MatHang_ChiNhanh> FindIdByOfBranch(int chiNhanh, int id);
 }

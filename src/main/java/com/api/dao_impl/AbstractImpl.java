@@ -1,10 +1,11 @@
 package com.api.dao_impl;
 
 import com.api.dao_interface.GenericDao;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
@@ -17,7 +18,7 @@ import java.util.List;
  */
 public class AbstractImpl<T,ID extends Serializable> implements GenericDao<T,ID> {
 
-    @Autowired
+    @PersistenceContext
     EntityManager entityManager;
     private Class<T> persistenceClass;
 

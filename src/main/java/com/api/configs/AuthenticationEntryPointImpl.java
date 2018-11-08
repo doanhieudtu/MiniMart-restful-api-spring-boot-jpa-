@@ -27,7 +27,7 @@ public class AuthenticationEntryPointImpl extends BasicAuthenticationEntryPoint 
     @Override
     public void afterPropertiesSet() throws Exception {
         // RealmName xuất hiện trên cửa sổ đăng nhập (Firefox).
-        setRealmName("o7planning");
+        setRealmName("MiniMart");
         super.afterPropertiesSet();
     }
 }

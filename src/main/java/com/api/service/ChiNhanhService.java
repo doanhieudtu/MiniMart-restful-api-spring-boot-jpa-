@@ -26,12 +26,10 @@ public class ChiNhanhService implements ChiNhanh_Service_Interface {
     public boolean Delete(ChiNhanh entity) {
         return chiNhanhDao.Delete(entity);
     }
-
     @Override
     public boolean Update(ChiNhanh entity) {
         return chiNhanhDao.Update(entity);
     }
-
     @Override
     public Object[] FinbyProperty(String property, Object value) {
         return chiNhanhDao.FinbyProperty(property, value);
