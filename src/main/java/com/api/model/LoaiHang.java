@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  */
 @Entity
 @Table(name="LoaiHang")
+@XmlRootElement(name="LoaiHang")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class LoaiHang {
     @Id
