@@ -24,12 +24,23 @@ public class TaiKhoan {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int maTK;
 
+    @Column(name = "TenTK")
+    private String tenTK;
+
+    public String getTenTK() {
+        return tenTK;
+    }
+
+    public void setTenTK(String tenTK) {
+        this.tenTK = tenTK;
+    }
+
     @Column(name = "MatKhau")
     private String matKhau;
 
     /*1 tài khoản chỉ thuộc sỡ hữu người dùng*/
     @JsonBackReference
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="MaND")
     private NguoiDung nguoiDung;
 

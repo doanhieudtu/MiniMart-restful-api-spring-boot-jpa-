@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "MatHang_ChiNhanh")
+@XmlRootElement(name="MatHang_ChiNhanh")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class MatHang_ChiNhanh {
 
@@ -45,9 +47,11 @@ public class MatHang_ChiNhanh {
 
     /*hạn sử dụng*/
     @Column(name = "HanSuDung")
-
     private int hansudung;
 
+    /*đã đồng bộ ảnh*/
+    @Column(name ="DongBoAnh")
+    private boolean  dongBoanh;
         /*1 mặt hàng của chi nhánh có thể xuất hiện trong nhiều phiếu nhập*/
     @JsonBackReference
     @OneToMany(mappedBy = "matHang_ChiNhanh", fetch = FetchType.LAZY)
@@ -70,6 +74,14 @@ public class MatHang_ChiNhanh {
 
     public Date getNgaysanxuat() {
         return ngaysanxuat;
+    }
+
+    public boolean isDongBoanh() {
+        return dongBoanh;
+    }
+
+    public void setDongBoanh(boolean dongBoanh) {
+        this.dongBoanh = dongBoanh;
     }
 
     public void setNgaysanxuat(Date ngaysanxuat) {

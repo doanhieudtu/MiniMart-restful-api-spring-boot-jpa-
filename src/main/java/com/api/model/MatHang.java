@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "MatHang")
+@XmlRootElement(name="MatHang")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class MatHang {
 
