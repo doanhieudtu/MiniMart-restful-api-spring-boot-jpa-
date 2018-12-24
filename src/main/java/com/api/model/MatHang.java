@@ -3,12 +3,15 @@ package com.api.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by DELL on 08/23/2018.
@@ -42,6 +45,16 @@ public class MatHang {
     @JsonBackReference
     private List<NhaCC_MatHang> lsNhaCungCap_MatHang;
 
+    /*1 mặt hàng có nhiều đơn giá nhập*/
+    @OneToMany(mappedBy = "matHang", fetch = FetchType.LAZY)
+    @JsonBackReference
+    private Set<DonGiaNhap> lsDonGiaNhap;
+
+    /* 1 mặt hàng có nhiề đơn giá xuất*/
+    @OneToMany(mappedBy = "matHang", fetch = FetchType.LAZY)
+    @JsonBackReference
+    private Set<DonGiaXuat> lsDonGiaXuat;
+
     /*đơn vị tính sản phẩm*/
     @Column(name = "DonViTinh")
     private String donvitinh;
@@ -51,6 +64,23 @@ public class MatHang {
     @ManyToOne
     @JoinColumn(name = "MaLoaiHang")
     private LoaiHang loaiHang;
+
+
+    public Set<DonGiaNhap> getLsDonGiaNhap() {
+        return lsDonGiaNhap;
+    }
+
+    public void setLsDonGiaNhap(Set<DonGiaNhap> lsDonGiaNhap) {
+        this.lsDonGiaNhap = lsDonGiaNhap;
+    }
+
+    public Set<DonGiaXuat> getLsDonGiaXuat() {
+        return lsDonGiaXuat;
+    }
+
+    public void setLsDonGiaXuat(Set<DonGiaXuat> lsDonGiaXuat) {
+        this.lsDonGiaXuat = lsDonGiaXuat;
+    }
 
     public String getMahang() {
         return mahang;

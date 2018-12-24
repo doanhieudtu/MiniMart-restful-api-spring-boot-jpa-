@@ -2,16 +2,19 @@ package com.api.service;
 
 import com.api.dao_impl.DonGiaXuatImpl;
 import com.api.model.DonGiaXuat;
+import com.api.model.DonGiaXuat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by DELL on 09/17/2018.
  */
 @Service
-public class DonGiaXuatService implements DoanGiaXuat_Service_Interface{
+public class DonGiaXuatService implements DonGiaXuat_Service_Interface{
     @Autowired
     DonGiaXuatImpl donGiaXuatImpl;
 
@@ -38,5 +41,14 @@ public class DonGiaXuatService implements DoanGiaXuat_Service_Interface{
     @Override
     public List<DonGiaXuat> FindAll() {
         return donGiaXuatImpl.FindAll();
+    }
+
+    @Override
+    public DonGiaXuat FindByGetDate( String idProduct) {
+        if(!idProduct.isEmpty()){
+            DonGiaXuat donGiaXuat=donGiaXuatImpl.FindByGetDate(idProduct);
+            if (donGiaXuat!=null) return  donGiaXuat;
+        }
+        return null;
     }
 }

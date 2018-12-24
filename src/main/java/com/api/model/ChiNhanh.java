@@ -18,7 +18,6 @@ import java.util.List;
  */
 @Entity
 @Table(name="ChiNhanh")
-@XmlRootElement(name = "chinhanh")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class ChiNhanh implements Serializable {
     /*Mã chi nhánh*/

@@ -13,4 +13,5 @@ public interface DonGiaNhap_Service_Interface {
     boolean Update(DonGiaNhap entity);
     Object[] FinbyProperty(String property, Object value);
     List<DonGiaNhap> FindAll();
+    DonGiaNhap FindByGetDate(String idProduct);
 }

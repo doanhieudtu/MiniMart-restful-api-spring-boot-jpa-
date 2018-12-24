@@ -1,6 +1,9 @@
 package com.api.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
 /**
@@ -8,6 +11,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "DonGiaNhap")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class DonGiaNhap {
     @Id
     @Column(name = "MaDonGia")
@@ -20,8 +24,8 @@ public class DonGiaNhap {
     @Column(name = "ngayKetThuc")
     private Date ngayKetThuc;
 
-    @Column(name = "GiaNhap")
-    private double giaNhap;
+    @Column(name = "DonGia")
+    private double donGia;
 
     @ManyToOne
     @JoinColumn(name = "MaHang")
@@ -51,12 +55,12 @@ public class DonGiaNhap {
         this.ngayKetThuc = ngayKetThuc;
     }
 
-    public double getGiaNhap() {
-        return giaNhap;
+    public double getDonGia() {
+        return donGia;
     }
 
-    public void setGiaNhap(double giaNhap) {
-        this.giaNhap = giaNhap;
+    public void setDonGia(double giaNhap) {
+        this.donGia = giaNhap;
     }
 
     public MatHang getMatHang() {

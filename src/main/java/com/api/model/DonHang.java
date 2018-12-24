@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "DonHang")
+@XmlRootElement(name="MatHang")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class DonHang  {
 
@@ -57,6 +59,9 @@ public class DonHang  {
     @ManyToOne
     @JoinColumn(name = "MaND")
     private NguoiDung nguoiDung;
+
+    @Column(name = "GhiChu")
+    private String ghiChu;
 
     public int getMadonhang() {
         return madonhang;
@@ -104,5 +109,13 @@ public class DonHang  {
 
     public void setNguoiDung(NguoiDung nguoiDung) {
         this.nguoiDung = nguoiDung;
+    }
+
+    public String getGhiChu() {
+        return ghiChu;
+    }
+
+    public void setGhiChu(String ghiChu) {
+        this.ghiChu = ghiChu;
     }
 }
